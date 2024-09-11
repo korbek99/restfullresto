@@ -25,11 +25,6 @@ class LocalArchivos_model extends CI_Model {
             return array('error' => 'ID es requerido');
         }
 
-
-        if (empty($LocalArchivosID)) {
-            return array('error' => 'ID es requerido');
-        }
-
         if (!is_numeric($LocalArchivosID)) {
          $response = array(
            array('err' => true, 'mensaje' => "El id siempre debe ser numerico"),
@@ -63,11 +58,6 @@ class LocalArchivos_model extends CI_Model {
     
     public function update($LocalArchivosID, $data) {
 
-         if (empty($LocalArchivosID)) {
-            return array('error' => 'ID es requerido');
-        }
-
-
         if (empty($LocalArchivosID)) {
             return array('error' => 'ID es requerido');
         }
@@ -94,11 +84,6 @@ class LocalArchivos_model extends CI_Model {
 
     // Método para eliminar un archivo de local
     public function delete($LocalArchivosID) {
-
-        if (empty($LocalArchivosID)) {
-            return array('error' => 'ID es requerido');
-        }
-
 
         if (empty($LocalArchivosID)) {
             return array('error' => 'ID es requerido');

@@ -25,10 +25,6 @@ class Local_model extends CI_Model {
             return array('error' => 'ID es requerido');
         }
 
-        if (empty($LocalID)) {
-            return array('error' => 'ID es requerido');
-        }
-
         if (!is_numeric($LocalID)) {
          $response = array(
            array('err' => true, 'mensaje' => "El id siempre debe ser numerico"),
@@ -61,10 +57,6 @@ class Local_model extends CI_Model {
 
     public function update($LocalID, $data) {
 
-         if (empty($LocalID)) {
-            return array('error' => 'ID es requerido');
-        }
-
         if (empty($LocalID)) {
             return array('error' => 'ID es requerido');
         }
@@ -91,10 +83,6 @@ class Local_model extends CI_Model {
 
    
     public function delete($LocalID) {
-
-         if (empty($LocalID)) {
-            return array('error' => 'ID es requerido');
-        }
 
         if (empty($LocalID)) {
             return array('error' => 'ID es requerido');

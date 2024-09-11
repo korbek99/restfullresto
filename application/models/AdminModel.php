@@ -21,6 +21,10 @@ class Admins_model extends CI_Model {
     
     public function get_admin($adminID) {
 
+       if (empty($adminID)) {
+            return array('error' => 'ID es requerido');
+       }
+
        if (!is_numeric($adminID)) {
          $response = array(
            array('err' => true, 'mensaje' => "El id siempre debe ser numerico"),
@@ -54,6 +58,10 @@ class Admins_model extends CI_Model {
     // Método para actualizar un administrador existente
     public function update($adminID, $data) {
 
+      if (empty($adminID)) {
+            return array('error' => 'ID es requerido');
+      }
+
       if (!is_numeric($adminID)) {
          $response = array(
            array('err' => true, 'mensaje' => "El id siempre debe ser numerico"),
@@ -76,6 +84,23 @@ class Admins_model extends CI_Model {
 
     // Método para eliminar un administrador
     public function delete($adminID) {
+
+       if (empty($adminID)) {
+            return array('error' => 'ID es requerido');
+       }
+
+      if (!is_numeric($adminID)) {
+         $response = array(
+           array('err' => true, 'mensaje' => "El id siempre debe ser numerico"),
+         );
+         return $response;
+       }
+
+       if ($adminID < 0  ) {
+         $response = array('error' => 'id invalido');
+         return $response;
+       }
+
         $this->db->where('adminID', $adminID);
         if ($this->db->delete('Admins')) {
             return array('mensaje' => 'Administrador eliminado con éxito');
