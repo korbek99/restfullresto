@@ -29,19 +29,24 @@ class Usuarios extends CI_Controller {
     }
 
    public function login() {
-        $this->hooks();
-        
-        $usuario = $this->input->post('usuario');  
-        $password = $this->input->post('password');
+    $this->hooks(); 
+    $usuario = $this->input->post('usuario');  
+    $password = $this->input->post('password');
 
-
-        $usuario_data = $this->Usuarios_model->verificar_credenciales($usuario, $password);
-        if ($usuario_data) {
-            echo json_encode(array('status' => 'success', 'mensaje' => 'Login exitoso', 'usuario' => $usuario_data));
-        } else {
-            echo json_encode(array('status' => 'error', 'mensaje' => 'Credenciales incorrectas'));
-        }
+    if (empty($usuario) || empty($password)) {
+        echo json_encode(array('status' => 'error', 'mensaje' => 'Usuario y contraseña son requeridos'));
+        return;
     }
+
+    $usuario_data = $this->Usuarios_model->verificar_credenciales($usuario, $password);
+    
+    if ($usuario_data) {
+        echo json_encode(array('status' => 'success', 'mensaje' => 'Login exitoso', 'usuario' => $usuario_data));
+    } else {
+        echo json_encode(array('status' => 'error', 'mensaje' => 'Credenciales incorrectas'));
+    }
+}
+
 
   
     public function insertar() {

@@ -21,6 +21,13 @@ class ComentariosLocal extends CI_Controller {
         echo json_encode($data);
     }
 
+    public function list_comment_local($LocalID) {
+        $this->hooks();
+        $data = $this->ComentariosLocal_model->listar_comentarios_local($LocalID);
+        echo json_encode($data);
+
+    }
+
     public function obtener($ComentariosLocalID) {
         $this->hooks();
         $data = $this->ComentariosLocal_model->get_comentario($ComentariosLocalID);

@@ -68,11 +68,13 @@ $route['ciudad/actualizar/(:num)'] = 'ciudad/actualizar/$1';
 $route['ciudad/eliminar/(:num)'] = 'ciudad/eliminar/$1';
 
 // Rutas para el controlador ComentariosLocal
-$route['comentarios-local/listar'] = 'comentarioslocal/listar';
-$route['comentarios-local/obtener/(:num)'] = 'comentarioslocal/obtener/$1';
-$route['comentarios-local/insertar'] = 'comentarioslocal/insertar';
-$route['comentarios-local/actualizar/(:num)'] = 'comentarioslocal/actualizar/$1';
-$route['comentarios-local/eliminar/(:num)'] = 'comentarioslocal/eliminar/$1';
+$route['comentarios/listar'] = 'comentarioslocal/listar';
+$route['comentarios/obtener/(:num)'] = 'comentarioslocal/obtener/$1';
+$route['comentarios/insertar'] = 'comentarioslocal/insertar';
+$route['comentarios/actualizar/(:num)'] = 'comentarioslocal/actualizar/$1';
+$route['comentarios/eliminar/(:num)'] = 'comentarioslocal/eliminar/$1';
+$route['comentarios/local/(:num)'] = 'ComentariosLocal/list_comment_local/$1';
+
 
 // Rutas para el controlador EventoTipo
 $route['evento-tipo/listar'] = 'eventoTipo/listar';
@@ -143,3 +145,4 @@ $route['usuarios/obtener/(:num)'] = 'usuarios/obtener/$1';
 $route['usuarios/insertar'] = 'usuarios/insertar';
 $route['usuarios/actualizar/(:num)'] = 'usuarios/actualizar/$1';
 $route['usuarios/eliminar/(:num)'] = 'usuarios/eliminar/$1';
+$route['usuarios'] = 'Usuarios/login';
