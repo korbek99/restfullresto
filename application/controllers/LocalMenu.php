@@ -22,6 +22,27 @@ class LocalMenu extends CI_Controller {
         echo json_encode($data);
     }
 
+    public function listarMenuLocal($LocalID) {
+      
+        $this->hooks();
+        $data = $this->LocalMenu_model->listar_menus_local($LocalID);
+
+        if (isset($data['error']) && $data['error']) {
+            // Configura una respuesta con código de error HTTP 400 (Bad Request)
+            $this->output
+                ->set_status_header(400)
+                ->set_content_type('application/json')
+                ->set_output(json_encode($data));
+        } else {
+            // Configura una respuesta con código HTTP 200 (OK)
+            $this->output
+                ->set_status_header(200)
+                ->set_content_type('application/json')
+                ->set_output(json_encode($data));
+       }
+    }
+
+
    
     public function obtener($LocalMenuID) {
         $this->hooks();

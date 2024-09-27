@@ -18,6 +18,35 @@ class LocalMenu_model extends CI_Model {
         }
     }
 
+    public function listar_menus_local($LocalID) {
+
+    
+    if (empty($LocalID)) {
+        return array('error' => true, 'mensaje' => 'ID es requerido');
+    }
+
+    
+    if (!is_numeric($LocalID)) {
+        return array('error' => true, 'mensaje' => 'El ID debe ser numérico');
+    }
+
+    
+    if ($LocalID < 0) {
+        return array('error' => true, 'mensaje' => 'ID inválido');
+    }
+
+    $this->db->where('LocalID', $LocalID);
+    $query = $this->db->get('Local_Menu');
+
+    
+    if ($query->num_rows() > 0) {
+        return $query->result_array();
+    } else {
+        return array('error' => true, 'mensaje' => 'No se encontraron menús para el local especificado');
+    }
+}
+
+
     
     public function get_menu($LocalMenuID) {
 

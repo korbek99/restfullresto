@@ -99,6 +99,7 @@ $route['localarchivos/eliminar/(:num)'] = 'localarchivos/eliminar/$1';
 
 // Rutas para el controlador LocalMenu
 $route['localmenu/listar'] = 'localmenu/listar';
+$route['localmenu/listarMenuLocal/(:num)'] = 'LocalMenu/listarMenuLocal/$1'; 
 $route['localmenu/obtener/(:num)'] = 'localmenu/obtener/$1';
 $route['localmenu/insertar'] = 'localmenu/insertar';
 $route['localmenu/actualizar/(:num)'] = 'localmenu/actualizar/$1';
